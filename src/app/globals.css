@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0b0f;
+  --bg-elevated: #12141c;
+  --bg-card: #161822;
+  --border: #2a2e3d;
+  --border-soft: #1e2230;
+  --text: #e8eaf0;
+  --text-muted: #9aa0b4;
+  --text-dim: #6b7289;
+  --accent: #7dd3fc;
+  --warm: #fbbf24;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 35%, transparent);
+  color: #fff;
+}
+
+a { color: inherit; text-underline-offset: 3px; }
+
+.prose-guide a { color: var(--accent); }
+.prose-guide a:hover { color: #bae6fd; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+}
+.tag-accent {
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
+  color: var(--accent);
+}
+.tag-warn {
+  border-color: color-mix(in oklab, var(--warm) 40%, var(--border));
+  color: var(--warm);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 0.875rem;
+}
+.card:hover { border-color: var(--border); }
+
+.section-rule { border-top: 1px solid var(--border-soft); }
